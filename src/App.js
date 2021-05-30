@@ -1,11 +1,14 @@
 import './App.css';
 import React, { useEffect, useRef, useState } from 'react';
-
+import { Button } from 'react-bootstrap';
 const App = () => {
-  const [days, setDays] = useState();
-  const [hours, setHours] = useState();
-  const [seconds, setSeconds] = useState();
-  const [minutes, setMinutes] = useState();
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [weeks, setWeeks] = useState(0);
+  const [months, setMonths] = useState(0);
+  const [years, setYears] = useState(0);
 
   // const [days, setDays] = useState();
   // const [weeks, setWeeks] = useState();
@@ -21,7 +24,19 @@ const App = () => {
       const now = new Date().getTime();
       const distance = futureDate - now;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const years = Math.floor(distance / (1000 * 60 * 60 * 24 * 7 * 4 * 12));
+
+      const months = Math.floor(
+        (distance % (1000 * 60 * 60 * 24 * 7 * 4 * 12)) /
+          (1000 * 60 * 60 * 24 * 7 * 4)
+      );
+
+      const weeks = Math.floor(
+        (distance % (1000 * 60 * 60 * 24 * 7 * 4)) / (1000 * 60 * 60 * 24 * 7)
+      );
+      const days = Math.floor(
+        (distance % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24)
+      );
       const hours = Math.floor(
         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
       );
@@ -39,6 +54,9 @@ const App = () => {
         setHours(hours);
         setMinutes(minutes);
         setSeconds(seconds);
+        setWeeks(weeks);
+        setMonths(months);
+        setYears(years);
       }
     }, 1000);
   };
@@ -59,7 +77,7 @@ const App = () => {
 
       <section className='timer-2'>
         <section className='min-timer'>
-          <h4>111</h4>
+          <h4>{years}</h4>
 
           <h4>
             <small>Years</small>
@@ -70,7 +88,7 @@ const App = () => {
         </h4>
 
         <section className='min-timer'>
-          <h4>88</h4>
+          <h4>{months}</h4>
           <h4>
             <small>Months</small>
           </h4>
@@ -79,7 +97,7 @@ const App = () => {
           <span>:</span>
         </h4>
         <section className='min-timer'>
-          <h4>88</h4>
+          <h4>{weeks}</h4>
           <h4>
             <small>Weeks</small>
           </h4>
@@ -112,8 +130,34 @@ const App = () => {
           </h4>
         </section>
       </section>
+
+      <section className='min-clock'>
+        <h4>{222}</h4>
+        <h4>
+          <small>Seconds</small>
+        </h4>
+      </section>
+      <section className='min-clock'>
+        <h4>{222}</h4>
+        <h4>
+          <small>Seconds</small>
+        </h4>
+      </section>
+      <section className='min-clock'>
+        <h4>{222}</h4>
+        <h4>
+          <small>Seconds</small>
+        </h4>
+      </section>
+      <Button variant='success'>Start</Button>
+      <Button variant='primary'>Stop</Button>
     </section>
   );
 };
 
 export default App;
+
+// creata a template
+// create button to start and stop
+// set start to 0
+// button click should work

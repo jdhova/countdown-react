@@ -24,3 +24,9 @@
 .min-timer p {
   font-size: 15px;
 }
+
+.min-clock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
