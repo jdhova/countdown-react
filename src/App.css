@@ -30,3 +30,14 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+/* @media screen and (max-width: 480px) {
+  .timer-1 h2 {
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .timer-1 h2 {
+    padding-top: 20px 40px;
+  }
+} */

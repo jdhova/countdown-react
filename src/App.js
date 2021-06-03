@@ -130,7 +130,7 @@ const App = () => {
           </h4>
         </section>
       </section>
-
+      {/* 
       <section className='min-clock'>
         <h4>{222}</h4>
         <h4>
@@ -150,7 +150,7 @@ const App = () => {
         </h4>
       </section>
       <Button variant='success'>Start</Button>
-      <Button variant='primary'>Stop</Button>
+      <Button variant='primary'>Stop</Button> */}
     </section>
   );
 };
